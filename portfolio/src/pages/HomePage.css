@@ -1,0 +1,130 @@
+.homepage {
+    font-family: Arial, sans-serif;
+}
+.homepage-navbar{
+    width: 100%;
+    position: sticky;
+    top: 0px;
+    z-index: 1000;
+}
+.content-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 90%;
+    margin: 20px auto;
+}
+
+.identity-container {
+    text-align: center; /* Center-align the content */
+    max-width: 240px; /* Limit the container width */
+    margin: 0 auto; /* Center the identity container horizontally */
+    padding: 20px; /* Add spacing inside the container */
+    float: left;
+    position: sticky; 
+    opacity: 1;
+}
+
+.identity-container img {
+    border-radius: 8px; /* Add rounded corners to the image */
+    margin-bottom: 10px; /* Space between the image and text */
+    width: 240px; /* Set the fixed width for the image */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.identity-container h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.author__urls {
+    list-style-type: none; /* Remove bullet points */
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    text-align: left; /* Align the list items to the left */
+
+}
+
+.author__urls li {
+    margin: 12px 0; /* Add spacing between lines */
+    display: flex;
+    align-items: center; /* Align icons and text in the same line */
+}
+
+.author__urls li .fa-icon {
+    margin-right: 8px; /* Add space between the icon and the text */
+    font-size: 18px; /* Adjust icon size */
+}
+
+.author__urls a {
+    text-decoration: none; /* Remove underline for links */
+    color: inherit; /* Use inherited color for text */
+    font-weight: normal; /* Use normal font weight */
+    display: flex;
+    align-items: center; /* Ensure icons and text are aligned */
+}
+
+.author__urls span:hover {
+    text-decoration: underline; /* Underline links on hover */
+}
+
+
+.info-container {
+    width: 70%; /* Adjust width as necessary */
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Adds space between vertically aligned items */
+    background-color: #fff;
+    text-align: left;
+    overflow-y: auto;
+}
+
+.image-container {
+    position: relative; /* Needed for overlay positioning */
+    width: 100%; /* Full width of the parent container */
+    height: auto; /* Automatically adjust height based on aspect ratio */
+}
+
+.image-container img {
+    width: 100%; /* Make the image fully span the container */
+    height: auto; /* Maintain the aspect ratio */
+    display: block; /* Remove unwanted space below the image */
+}
+
+.image-container::after {
+    content: ''; /* Create the fading effect */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 30%; /* Adjust height to control the fading area */
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+    pointer-events: none; /* Ensure it doesn’t interfere with clicks */
+}
+.detailInfo-container{
+    width: 100%;
+}
+.section-container {
+    width: 100%; /* Full width of parent */
+    margin: 0 auto; /* Center-align the section */
+}
+.section-title {
+    font-family: Arial, sans-serif; /* Use Arial font */
+    font-weight: bold; /* Make the title bold */
+    font-size: 24px; /* Adjust font size */
+    margin-bottom: 10px; /* Add spacing below the title */
+    padding-bottom: 10px; /* Add padding for spacing above the line */
+    text-align: left; /* Align text to the left */
+    width: 100%; /* Matches the container width */
+    max-width: 100%; /* Ensure the title does not overflow */
+    border-bottom: 1.5px solid #EEEEEE; /* Add a gray line under the title */
+    box-sizing: border-box;
+}
+
+
+
+
+
