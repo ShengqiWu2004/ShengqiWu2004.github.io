@@ -55,7 +55,7 @@ export const ProjectCard = ({ project }: { project: Project }) => {
                                 <li key={index}>{bullet}</li>
                             ))}
                         </ul>
-                        <ImageList
+                        {project.pictures.length > 0 && (<ImageList
                             sx={{
                                 display: "flex",
                                 flexDirection: "row",
@@ -100,7 +100,7 @@ export const ProjectCard = ({ project }: { project: Project }) => {
                                     />
                                 </ImageListItem>
                             ))}
-                        </ImageList>
+                        </ImageList>)}
                     </CardContent>
                 </CardActionArea>
             </Card>
