@@ -65,6 +65,7 @@ export const ProjectCard = ({ project }: { project: Project }) => {
                                 display: "flex",
                                 flexDirection: "row",
                                 overflowX: "auto",
+                                overflowY: "hidden",
                                 height: 100,
                                 width: "98%",
                                 marginTop: "10px",

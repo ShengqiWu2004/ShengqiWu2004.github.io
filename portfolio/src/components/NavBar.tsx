@@ -28,16 +28,30 @@ export const NavBar = () => {
     setAnchorElNav(null);
   };
 
+  const scrollToSection = (id: string) => {
+    const section = document.getElementById(id);
+    //const navbarHeight = 68.5; // Adjust this value based on your navbar height
+    if (section) {
+      const offset = section.offsetTop ;
+      window.scrollTo({ top: offset, behavior: "smooth" });
+    }
+    setAnchorElNav(null); // Close the menu after scrolling
+  };
+  const scrollToTop = () =>{
+    window.scrollTo({top:0, behavior: "smooth"});
+    setAnchorElNav(null);
+  }
+
   return (
-    <AppBar position="sticky" sx={{ backgroundColor: "white"}}>
+    <AppBar position="sticky" sx={{ backgroundColor: "white" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          {/* Logo or Title */}
           <Typography
             variant="h6"
             noWrap
             component="a"
             href="#"
+            onClick={scrollToTop}
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
@@ -51,7 +65,7 @@ export const NavBar = () => {
             HOMEPAGE
           </Typography>
 
-          {/* Mobile Menu Icon */}
+          {/* Mobile Menu */}
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
@@ -59,7 +73,7 @@ export const NavBar = () => {
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
-              sx={{ color: 'gray' }} 
+              sx={{ color: "gray" }}
             >
               <MenuIcon />
             </IconButton>
@@ -77,13 +91,10 @@ export const NavBar = () => {
               }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
-              sx={{ display: { xs: "block", md: "none" } }}
             >
               {pages.map((page) => (
-                <MenuItem key={page.id} onClick={handleCloseNavMenu}>
+                <MenuItem key={page.id} onClick={() => scrollToSection(page.id)}>
                   <Typography
-                    component="a"
-                    href={`#${page.id}`}
                     sx={{
                       textAlign: "center",
                       textDecoration: "none",
@@ -102,7 +113,7 @@ export const NavBar = () => {
             {pages.map((page) => (
               <Button
                 key={page.id}
-                href={`#${page.id}`}
+                onClick={() => scrollToSection(page.id)}
                 sx={{
                   my: 2,
                   color: "#636363",

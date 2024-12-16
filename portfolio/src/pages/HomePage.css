@@ -1,6 +1,13 @@
 .homepage {
     font-family: Arial, sans-serif;
 }
+p {
+    margin-bottom: 8px; /* Reduce space between paragraphs */
+    line-height: 1.5; /* Adjust line spacing for better readability */
+}
+html {
+    scroll-behavior: smooth;
+}
 .homepage-navbar{
     width: 100%;
     position: sticky;
@@ -8,11 +15,12 @@
     z-index: 1000;
 }
 .content-container {
+    position:relative;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: flex-start;
-    width: 90%;
+    width: 95%;
     margin: 20px auto;
 }
 
@@ -123,8 +131,6 @@
     border-bottom: 1.5px solid #EEEEEE; /* Add a gray line under the title */
     box-sizing: border-box;
 }
-
-
-
-
-
+.descriptive-text{
+    margin-top: 0;
+}

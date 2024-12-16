@@ -136,7 +136,7 @@ export const HomePage = () => {
                     </div>
                     <div className="detailInfo-container">
                         {/* About Me Section */}
-                        <div id="about-me" className="section-container">
+                        <section id="about-me" className="section-container">
                             <h2 className="section-title">About Me</h2>
                             <p>
                                 Hi!
@@ -150,39 +150,59 @@ export const HomePage = () => {
                             🎼 <strong> Marimba</strong> and 🥁 <strong>Timpani</strong>, where I developed a strong appreciation 
                             for precision and teamwork. I am eager to contribute to impactful innovations in my fields of interest.
                             </p>
-                        </div>
+                        </section>
 
                         {/* News Section */}
-                        <div id="news" className="section-container">
-                            <h2 className="section-title">News</h2>
-                            <p>09/2424 🔬: Join the Research Team at Fang Lab</p>
-                            <p>09/2022 🌊: Moved to San Diego!</p>
-                        </div>
+                        <section id="news" className="section-container">
+                            <h2 className="section-title" >News</h2>
+                            <p >09/2424 🔬: Join the Research Team at Fang Lab</p>
+                            <p className="descriptive-text">09/2022 🌊: Moved to San Diego!</p>
+                        </section>
 
                         {/* Projects Section */}
-                        <div id="projects" className="section-container">
+                        <section id="projects" className="section-container">
                             <h2 className="section-title">Projects</h2>
                             <div className="project-grid">
                             {ProjectList.map((project, index) => (
                                     <ProjectCard key={index} project={project} />
                             ))}
                             </div>
-                        </div>
+                        </section>
 
                         {/* CV Section */}
                         <div id="cv" className="section-container">
                             <h2 className="section-title">CV</h2>
                             <div id = "Education" className="subsection-container">
                                 <h3 className="subsection-title">Education</h3>
+                                <ul>
+                                    <li>
+                                    <p>🔱 <strong>University of California San Diego</strong>, 2022 - Now</p>
+                                    <p className="descriptive-text">B.S. in Undergraduate in Computer Engineering and Mathematics-Computer Science</p>
+                                    </li>
+                                    <li>
+                                    <p>📕 <strong>Stanford Summer Session</strong>, 2020 - 2021 Summer</p>
+                                    </li>
+                                </ul>
                             </div>
 
                             <div id = "Experiences" className="subsection-container">
                                 <h3 className="subsection-title">Experiences</h3>
+                                <ul>
+                                    
+                                </ul>
                             </div>
-
+                                
 
                             <div id = "Awards & Certificates" className="subsection-container">
                                 <h3 className="subsection-title">Awards & Certificates</h3>
+                                <ul>
+                                    <li>
+                                    <p className="descriptive-text">University of California San Diego Provost Honor × 8</p>
+                                    </li>
+                                    <li>
+                                    <p className="descriptive-text">Heartsaver First Aid CPR AED by American Heart  Association</p>
+                                    </li>
+                                </ul>
                             </div>
                             {/* <p>
                                 Download my CV <a href="/path-to-cv">here</a>.

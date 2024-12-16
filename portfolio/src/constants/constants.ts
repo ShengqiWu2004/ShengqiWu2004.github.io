@@ -1,6 +1,6 @@
-import { Project } from "../types";
+import { Project,Experience } from "../types";
 
-export const SoCalSocial:Project = {
+const SoCalSocial:Project = {
     name: "SoCalSocial",
     link: "https://github.com/harry-lons/SoCalSocial",
     bullets: [
@@ -23,6 +23,22 @@ export const ProjectList:Project[] = [
     SoCalSocial,
 
 
+];
+
+const NanoLab: Experience = {
+    companyName: "Nanomaterials & Nanomedicine Laboratory",
+    companyLink: "",
+    companyPosition: "San Diego, CA",
+    jobTitle: "Undergraduate Researcher",
+    jobDescription: "",
+    projects: [],
+    begin_time: new Date(2024,9),
+    isEnded: false,
+    end_time: new Date(),
+}
+
+export const ExperienceList: Experience [] = [
+    NanoLab
 ];
 
 
