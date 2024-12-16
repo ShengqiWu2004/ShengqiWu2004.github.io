@@ -134,3 +134,14 @@ html {
 .descriptive-text{
     margin-top: 0;
 }
+.content-container a{
+    text-decoration:none !important;
+}
+.content-container a:hover, p a:hover{
+    text-decoration: underline !important;
+  text-decoration-thickness: 1.5px !important;
+  text-decoration-color: black !important;
+}
+.project-anchor span:hover {
+    text-decoration: underline; /* Underline links on hover */
+}

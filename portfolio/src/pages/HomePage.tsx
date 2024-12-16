@@ -5,11 +5,14 @@ import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import profile from "../constants/profile.png";
 import MountainPic from "../constants/background.jpeg";
-import { ProjectList } from "../constants/constants";
+import { ExperienceList, ProjectList } from "../constants/constants";
 import { ProjectCard } from "../components/ProjectCard";
 import "./HomePage.css";
+import { WidthFull } from "@mui/icons-material";
+import { formatDate, validFormat } from "../components/Common";
 
 export const HomePage = () => {
+    const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
     const [windowWidth, setWindowWidth] = useState(0);
     const screenSizeLimit = 900;
     useEffect(() => {
@@ -21,6 +24,15 @@ export const HomePage = () => {
 
         return () => window.removeEventListener("resize", handleResize);
     }, []);
+
+    const scrollToSection = (id: string) => {
+        const section = document.getElementById(id);
+        //const navbarHeight = 68.5; // Adjust this value based on your navbar height
+        if (section) {
+          const offset = section.offsetTop ;
+          window.scrollTo({ top: offset, behavior: "smooth" });
+        }
+      };
 
     // Prevent rendering logic based on windowWidth before it's initialized
     if (windowWidth === 0) return null;
@@ -155,7 +167,7 @@ export const HomePage = () => {
                         {/* News Section */}
                         <section id="news" className="section-container">
                             <h2 className="section-title" >News</h2>
-                            <p >09/2424 🔬: Join the Research Team at Fang Lab</p>
+                            <p >09/2024 🔬: Join the Research Team at Fang Lab</p>
                             <p className="descriptive-text">09/2022 🌊: Moved to San Diego!</p>
                         </section>
 
@@ -187,9 +199,34 @@ export const HomePage = () => {
 
                             <div id = "Experiences" className="subsection-container">
                                 <h3 className="subsection-title">Experiences</h3>
-                                <ul>
+                                <ul>{ExperienceList.map((experience, index) => (
+                                    <li key={index}>
+                                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
+                                            <div className="text-div">
+                                                <a href={experience.companyLink} target="_blank" rel="noopener noreferrer" style={{  color: 'inherit' }} id="experience-title">
+                                                    <strong>{experience.companyName}</strong></a>, {experience.companyPosition}
+                                            </div>
+                                            <p style={{ margin: 0 }}>{formatDate(experience.begin_time)} - {experience.isEnded ? formatDate(experience.end_time) : "Now"}</p>
+                                        </div>
+                                        <p className="descriptive-text"><em>{experience.jobTitle}</em></p>
+                                        <p className="descriptive-text">{experience.jobDescription}</p>
+                                        {experience.projects.length > 0 && (
+                                        <div className="project-anchor">
+                                        <p className = "descriptive-text" style={{ color: 'inherit', cursor: 'pointer' }}>
+                                        Related Projects:{" "}
+                                        {experience.projects.map((project, projIndex) => (
+                                        <span key={projIndex} onClick={() => scrollToSection(validFormat(project.name))} style={{ color: 'inherit', cursor: 'pointer' }}>
+                                        {project.name}
+                                        {projIndex < experience.projects.length - 1 ? ", " : ""}
+                                        </span>
+                                        ))}
+                                        </p>
+                                        </div>
+)}
                                     
-                                </ul>
+                                </li>
+                            ))}
+                        </ul>
                             </div>
                                 
 

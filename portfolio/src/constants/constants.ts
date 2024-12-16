@@ -27,11 +27,11 @@ export const ProjectList:Project[] = [
 
 const NanoLab: Experience = {
     companyName: "Nanomaterials & Nanomedicine Laboratory",
-    companyLink: "",
+    companyLink: "https://fanglab.com/",
     companyPosition: "San Diego, CA",
     jobTitle: "Undergraduate Researcher",
-    jobDescription: "",
-    projects: [],
+    jobDescription: "Conducted modeling for tumor growth dynamics using transcriptomic data and gained wet lab experience in gene extraction and immunological research.",
+    projects: [SoCalSocial,SoCalSocial],
     begin_time: new Date(2024,9),
     isEnded: false,
     end_time: new Date(),

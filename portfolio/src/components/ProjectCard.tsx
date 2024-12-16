@@ -6,16 +6,11 @@ import ImageListItemBar from "@mui/material/ImageListItemBar";
 import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
 import { Project } from "../types";
+import { formatDate, validFormat } from "./Common";
 
 export const ProjectCard = ({ project }: { project: Project }) => {
     const [open, setOpen] = useState(false);
     const [selectedImage, setSelectedImage] = useState<{ src: string; alt: string } | null>(null);
-
-    const formatDate = (date: Date) => {
-        const year = date.getFullYear();
-        const month = String(date.getMonth() + 1).padStart(2, "0"); // Ensure 2-digit month
-        return `${year}/${month}`;
-    };
 
     const handleImageClick = (image: { src: string; alt: string }) => {
         setSelectedImage(image);
@@ -29,7 +24,7 @@ export const ProjectCard = ({ project }: { project: Project }) => {
 
     return (
         <>
-            <Card sx={{ width: "98%", backgroundColor: "rgba(206, 240, 241, 0.3)", margin: "20px auto" }}>
+            <Card id={validFormat(project.name)} sx={{ width: "98%", backgroundColor: "rgba(206, 240, 241, 0.3)", margin: "20px auto" }}>
                 <CardActionArea>
                     <CardContent>
                         <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>

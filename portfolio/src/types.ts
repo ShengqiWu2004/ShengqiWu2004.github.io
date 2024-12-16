@@ -3,10 +3,7 @@ interface Image{
     src:string;
     alt:string;
 }
-interface ProjectAnchor{
-    anchor:string;
-    alt:string;
-}
+
 export type Project = {
     name: string;
     link: string;
@@ -25,7 +22,7 @@ export type Experience = {
     companyPosition:string;
     jobTitle: string;
     jobDescription: string;
-    projects: ProjectAnchor[];
+    projects: Project[];
     begin_time: Date;
     isEnded: boolean;
     end_time: Date;
