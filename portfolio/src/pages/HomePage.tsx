@@ -107,7 +107,7 @@ export const HomePage = () => {
                         }
                     >
                         <li>
-                            <a href="mailto:shw105@ucsd.edu">
+                            <a href="mailto:wsq20041130@gmail.com">
                                 <FontAwesomeIcon
                                     icon={faEnvelope}
                                     className="fa-icon"
