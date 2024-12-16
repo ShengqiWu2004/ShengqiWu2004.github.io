@@ -1,5 +1,5 @@
 import { Project,Experience } from "../types";
-
+//Notice that Month is 0-index Base !
 const SoCalSocial:Project = {
     name: "SoCalSocial",
     link: "https://github.com/harry-lons/SoCalSocial",
@@ -12,8 +12,8 @@ const SoCalSocial:Project = {
         "Built using React, TypeScript, FastAPI, Python, PyJWT, and PostGre SQL.",
     ],
     description: "A web platform that centralizes and personalizes event information for UC San Diego students.",
-    begin_time: new Date(2024,9),
-    end_time: new Date(2024,12),
+    begin_time: new Date(2024,8),
+    end_time: new Date(2024,11),
     rel_path:"/images/SoCalSocial/",
     pictures: [{src: "Landing.png",alt:"Landing Page"},{src: "HomePage.png",alt:"Home Page"},{src: "Events.png",alt:"Browse Events"},{src: "EventDetail.png",alt:"Detail of Event"},{src: "Clubs.png",alt:"Find Clubs"},{src: "AddEvent.png",alt:"Publish an Event"},{src: "ManageEvent.png",alt:"Manage Your Events"}],
     media: ["https://www.youtube.com/watch?v=m3Xlao0JmpI","https://www.youtube.com/watch?v=ZsWwgNoCHX8"]
@@ -27,7 +27,7 @@ const TumorGrowth: Project = {
         "Utilized TensorFlow with CUDA acceleration to optimize computational efficiency in handling large-scale transcriptomic datasets."
     ],//, achieving 85% prediction accuracy.
     description: "Developed a neural network-based pipeline leveraging CNNs and RNNs to predict tumor growth dynamics using a transcriptomic dataset of 6 billion data points.",
-    begin_time: new Date(2024,10),
+    begin_time: new Date(2024,9),
     end_time: new Date(),
     rel_path: "",
     pictures: [],
