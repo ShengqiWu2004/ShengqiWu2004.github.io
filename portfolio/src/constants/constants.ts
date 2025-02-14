@@ -41,7 +41,7 @@ export const ProjectList:Project[] = [
 
 const NanoLab: Experience = {
     companyName: "Nanomaterials & Nanomedicine Laboratory",
-    companyLink: "https://fanglab.com/",
+    companyLink: "http://nano.ucsd.edu/~l7zhang/index.php",
     companyPosition: "San Diego, CA",
     jobTitle: "Undergraduate Researcher",
     jobDescription: "Conducted modeling for tumor growth dynamics using transcriptomic data and gained wet lab experience in gene extraction and immunological research.",
