@@ -18,6 +18,23 @@ const SoCalSocial:Project = {
     pictures: [{src: "Landing.png",alt:"Landing Page"},{src: "HomePage.png",alt:"Home Page"},{src: "Events.png",alt:"Browse Events"},{src: "EventDetail.png",alt:"Detail of Event"},{src: "Clubs.png",alt:"Find Clubs"},{src: "AddEvent.png",alt:"Publish an Event"},{src: "ManageEvent.png",alt:"Manage Your Events"}],
     media: ["https://www.youtube.com/watch?v=m3Xlao0JmpI","https://www.youtube.com/watch?v=ZsWwgNoCHX8"]
 }
+const FalldownPrediction:Project = {
+    name: "Dynamic Fall Risk Analysis and Prediction Using Inertial Sensor Data.",
+    link: "https://github.com/ShengqiWu2004/Inertial-Sensor-Data-Prediction",
+    bullets: [
+        "Engineered neural network models using PyTorch that combine Convolutional Neural Networks (CNNs) and Long Short-Term Memory (LSTM) architectures for effective fall detection from Gyroscope and Acceleration sensor data.",
+        "Developed a flexible data segmentation and augmentation pipeline that slices sensor data into training segments based on configurable window size and prediction size parameters, allowing the model to adapt to diverse input dynamics.",
+        "Experimented with various dimensionality reduction and visualization techniques, including PCA, LDA, UMAP, to observe data patterns and enhance data analysis.",
+        "Employed CNNs to extract spatial features and LSTMs to capture temporal dependencies from a dataset comprising approximately 108,900 data points, enabling accurate predictions across 4 main activity categories—expandable to 8 detailed subcategories—highlighting the model's robustness.",
+        "Achieved test mse loss of 0.48, demonstrating exceptional precision and effectiveness in dynamic fall prediction.",
+    ],
+    description: "Designed a PyTorch-based predictive analytics system that integrates LSTM and CNN architectures to analyze multidimensional inertial sensor data for fall detection, achieving a per time-step prediction loss of 0.089.",
+    begin_time: new Date(2025,1),
+    end_time: new Date(2025,2),
+    rel_path:"/images/FalldownPrediction/",
+    pictures: [],
+    media: []
+}
 const TumorGrowth: Project = {
     name: "Tumor Growth Estimation with Transcriptomic Data (Ongoing)",
     link: "",
@@ -35,9 +52,21 @@ const TumorGrowth: Project = {
 }
 
 export const ProjectList:Project[] = [
+   // FalldownPrediction,
     SoCalSocial,
     TumorGrowth
 ];
+const ChemLab: Experience = {
+    companyName: "Joseph Wang Nano-bioelectronics (NBE) Lab",
+    companyLink: "https://joewang.ucsd.edu/",
+    companyPosition: "San Diego, CA",
+    jobTitle: "Undergraduate Researcher",
+    jobDescription: "Develop and implement deep learning models for sensor data analysis and motion capture categorization, integrating hardware code solutions under the mentorship of Dr. Shichao Ding.",
+    projects: [],
+    begin_time: new Date(2025,1),
+    isEnded: false,
+    end_time: new Date(),
+}
 
 const NanoLab: Experience = {
     companyName: "Nanomaterials & Nanomedicine Laboratory",
@@ -52,6 +81,7 @@ const NanoLab: Experience = {
 }
 
 export const ExperienceList: Experience [] = [
+    ChemLab,
     NanoLab,
 ];
 
