@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Card, CardActionArea, CardContent, Typography, Box } from "@mui/material";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
@@ -10,16 +10,41 @@ import { formatDate, validFormat } from "./Common";
 
 export const ProjectCard = ({ project }: { project: Project }) => {
     const [open, setOpen] = useState(false);
-    const [selectedImage, setSelectedImage] = useState<{ src: string; alt: string } | null>(null);
+    const [selectedImageIndex, setSelectedImageIndex] = useState<number>(0);
+    const touchStartX = useRef<number>(0);
+    const touchEndX = useRef<number>(0);
 
-    const handleImageClick = (image: { src: string; alt: string }) => {
-        setSelectedImage(image);
+    const handleImageClick = (imageIndex: number) => {
+        setSelectedImageIndex(imageIndex);
         setOpen(true);
     };
 
     const handleClose = () => {
         setOpen(false);
-        setSelectedImage(null);
+        setSelectedImageIndex(0);
+    };
+
+    const handleTouchStart = (e: React.TouchEvent) => {
+        touchStartX.current = e.targetTouches[0].clientX;
+    };
+
+    const handleTouchMove = (e: React.TouchEvent) => {
+        touchEndX.current = e.targetTouches[0].clientX;
+    };
+
+    const handleTouchEnd = () => {
+        if (!touchStartX.current || !touchEndX.current) return;
+        
+        const distance = touchStartX.current - touchEndX.current;
+        const isLeftSwipe = distance > 50;
+        const isRightSwipe = distance < -50;
+
+        if (isLeftSwipe && selectedImageIndex < project.pictures.length - 1) {
+            setSelectedImageIndex(selectedImageIndex + 1);
+        }
+        if (isRightSwipe && selectedImageIndex > 0) {
+            setSelectedImageIndex(selectedImageIndex - 1);
+        }
     };
 
     return (
@@ -76,7 +101,7 @@ export const ProjectCard = ({ project }: { project: Project }) => {
                                         position: "relative",
                                         "&:hover .MuiImageListItemBar-root": { opacity: 1 },
                                     }}
-                                    onClick={() => handleImageClick(image)}
+                                    onClick={() => handleImageClick(index)}
                                 >
                                     <img
                                         src={`${project.rel_path}${image.src}`}
@@ -117,13 +142,18 @@ export const ProjectCard = ({ project }: { project: Project }) => {
                 }}
             >
                 <DialogTitle sx={{ textAlign: "center", color: "white", fontWeight: "bold" }}>
-                    {selectedImage?.alt}
+                    {project.pictures[selectedImageIndex]?.alt}
                 </DialogTitle>
-                <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", padding: "20px" }}>
-                    {selectedImage && (
+                <Box 
+                    sx={{ display: "flex", justifyContent: "center", alignItems: "center", padding: "20px" }}
+                    onTouchStart={handleTouchStart}
+                    onTouchMove={handleTouchMove}
+                    onTouchEnd={handleTouchEnd}
+                >
+                    {project.pictures[selectedImageIndex] && (
                         <img
-                            src={`${project.rel_path}${selectedImage.src}`}
-                            alt={selectedImage.alt}
+                            src={`${project.rel_path}${project.pictures[selectedImageIndex].src}`}
+                            alt={project.pictures[selectedImageIndex].alt}
                             style={{ maxWidth: "100%", maxHeight: "80vh" }}
                         />
                     )}

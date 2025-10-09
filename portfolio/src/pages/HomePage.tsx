@@ -5,11 +5,12 @@ import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import profile from "../constants/profile.png";
 import MountainPic from "../constants/background.jpeg";
-import { ExperienceList, ProjectList } from "../constants/constants";
+import { ExperienceList, ProjectList,PubList } from "../constants/constants";
 import { ProjectCard } from "../components/ProjectCard";
 import "./HomePage.css";
 import { WidthFull } from "@mui/icons-material";
 import { formatDate, validFormat } from "../components/Common";
+import { ReactComponent as GoogleScholarIcon } from '../constants/googlescholar.svg';
 
 export const HomePage = () => {
     const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
@@ -117,7 +118,7 @@ export const HomePage = () => {
                             </a>
                         </li>
                         <li>
-                            <a href="https://www.linkedin.com/in/shengqi-wu-68a84a333/">
+                            <a href="https://www.linkedin.com/in/dianashengqiwu/">
                                 <FontAwesomeIcon
                                     icon={faLinkedin}
                                     className="fa-icon"
@@ -136,6 +137,20 @@ export const HomePage = () => {
                                 {windowWidth > screenSizeLimit && <span>Github</span>}
                             </a>
                         </li>
+                        
+
+                        <li>
+                            <a href="https://scholar.google.com/citations?user=GB1cIFgAAAAJ&hl=en">
+                                <GoogleScholarIcon
+                                className="fa-icon"
+                                style={{
+                                    width: windowWidth <= screenSizeLimit ? "1.5em" : "1em",
+                                    height: "auto",
+                                }}
+                                />
+                                {windowWidth > screenSizeLimit && <span>Google Scholar</span>}
+                            </a>
+                        </li>
                     </ul>
                 </div>
                 <div className="info-container"
@@ -152,10 +167,10 @@ export const HomePage = () => {
                             <h2 className="section-title">About Me</h2>
                             <p>
                                 Hi!
-                                I am Shengqi (Diana) Wu, a third-year 💻 <strong>Computer Engineering</strong>  and 💭 <strong>Math-CS</strong> student at University of California San Diego. 
+                                I am Shengqi (Diana) Wu, a senior undergraduate student majoring in 💻 <strong>Computer Engineering</strong>  and 💭 <strong>Math-CS</strong> at University of California San Diego. 
                                 My academic interests include <strong>Machine Learning</strong> and <strong>Software Engineering</strong>. 
-                                My work focuses on neural network applications in bioinformatics and exploring ways to apply CNNs 
-                                to solve everyday problems and enhance software solutions for improving quality of life.
+                                My work focuses on neural network applications in bioinformatics and exploring ways to apply Machine Learning 
+                                in solving everyday problems and enhance software solutions for improving quality of life.
                             </p>
                             <p>
                             Outside academics, I am a classically trained percussionist specializing in  
@@ -167,7 +182,8 @@ export const HomePage = () => {
                         {/* News Section */}
                         <section id="news" className="section-container">
                             <h2 className="section-title" >News</h2>
-                            <p >09/2024 🔬: Join the Research Team at Fang Lab</p>
+                            {/* <p className="descriptive-text">06/2025 🔬: UCSD ECE's Summer Research Internship Program with Prof. Bill Lin</p> */}
+                            <p className="descriptive-text">02/2025 🔬: Join Prof. Joseph Wang's NaoBioElectronic Lab</p>
                             <p className="descriptive-text">09/2022 🌊: Moved to San Diego!</p>
                         </section>
 
@@ -221,20 +237,42 @@ export const HomePage = () => {
                                         </span>
                                         ))}
                                         </p>
-                                        </div>
-)}
-                                    
-                                </li>
-                            ))}
-                        </ul>
+                                        </div>)}
+                                    </li>))}
+                                </ul>
                             </div>
+                            <div id="Publications" className="subsection-container">
+                                <h3 className="subsection-title">Publications</h3>
+                                <ul>
+                                    {PubList.map((publication, index) => {
+                                    const formattedAuthors = publication.authorList.replace(/Shengqi Wu/,"<strong>Shengqi Wu</strong>");
+                                    return (
+                                        <li key={index}>
+                                        <p className="descriptive-text" style={{display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "8px",}}>
+                                        <span>
+                                            <strong>{publication.title}</strong>
+                                                {publication.link && (
+                                                <span style={{ marginLeft: "8px" }}>
+                                                    [<a href={publication.link} target="_blank" rel="noopener noreferrer">paper</a>]
+                                                </span>
+                                                )}
+                                        </span>
+                                        <span style={{backgroundColor: "rgba(206, 240, 241, 0.3)",borderRadius: "8px",padding: "2px 8px",fontSize: "0.9em",color: "black",whiteSpace: "nowrap"}}>
+                                            {publication.journal}
+                                        </span>
+                                        </p>
+                                        <p className="descriptive-text" dangerouslySetInnerHTML={{ __html: formattedAuthors }}/>
+                                        </li>);})}
+                                </ul>
+                                </div>
+
                                 
 
                             <div id = "Awards & Certificates" className="subsection-container">
                                 <h3 className="subsection-title">Awards & Certificates</h3>
                                 <ul>
                                     <li>
-                                    <p className="descriptive-text">University of California San Diego Provost Honor × 8</p>
+                                    <p className="descriptive-text">University of California San Diego Provost Honor × 9</p>
                                     </li>
                                     <li>
                                     <p className="descriptive-text">Heartsaver First Aid CPR AED by American Heart  Association</p>

@@ -27,3 +27,10 @@ export type Experience = {
     isEnded: boolean;
     end_time: Date;
 }
+
+export type Publication = {
+    title: string;
+    authorList: string;
+    journal: string;
+    link: null | string;
+}
