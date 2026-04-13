@@ -96,7 +96,7 @@ export const HomePage = () => {
                             fontFamily: 'Arial',
                         }}
                     >
-                        Computer Engineering & Math-CS Undergrad @ UC San Diego
+                        Incoming Ph.D. Student in Electrical Engineering @ Stanford University
                     </p>
                     }
                     <ul
@@ -166,28 +166,16 @@ export const HomePage = () => {
                         <section id="about-me" className="section-container">
                             <h2 className="section-title">About Me</h2>
                             <p>
-                                Hi!
-                                I am Shengqi (Diana) Wu, a senior undergraduate student majoring in 💻 <strong>Computer Engineering</strong>  and 💭 <strong>Math-CS</strong> at University of California San Diego. 
-                                My academic interests include <strong>Machine Learning</strong> and <strong>Software Engineering</strong>. 
-                                My work focuses on neural network applications in bioinformatics and exploring ways to apply Machine Learning 
-                                in solving everyday problems and enhance software solutions for improving quality of life.
+                            Hi! I am Shengqi (Diana) Wu, an incoming PhD student in 💻 Electrical Engineering at Stanford University. My research lies at the intersection of machine learning and physical systems, with a focus on hardware–software co-optimization for energy-efficient, real-world intelligent systems. I am particularly interested in Physical AI, edge intelligence, and bioelectronic platforms, where sensing, computation, and learning are tightly integrated.
                             </p>
                             <p>
-                            Outside academics, I am a classically trained percussionist specializing in  
-                            🎼 <strong> Marimba</strong> and 🥁 <strong>Timpani</strong>, where I developed a strong appreciation 
-                            for precision and teamwork. I am eager to contribute to impactful innovations in my fields of interest.
+                            Outside academics, I am a classically trained percussionist specializing in 🎼 Marimba and 🥁 Timpani. This experience has shaped how I think about precision, timing, and collaboration within complex systems. I am excited to contribute to impactful innovations that bridge intelligent algorithms and the physical world.
                             </p>
                         </section>
 
-                        {/* News Section */}
-                        <section id="news" className="section-container">
-                            <h2 className="section-title" >News</h2>
-                            {/* <p className="descriptive-text">06/2025 🔬: UCSD ECE's Summer Research Internship Program with Prof. Bill Lin</p> */}
-                            <p className="descriptive-text">02/2025 🔬: Join Prof. Joseph Wang's NaoBioElectronic Lab</p>
-                            <p className="descriptive-text">09/2022 🌊: Moved to San Diego!</p>
-                        </section>
 
-                        {/* Projects Section */}
+
+                        {/* Projects Section
                         <section id="projects" className="section-container">
                             <h2 className="section-title">Projects</h2>
                             <div className="project-grid">
@@ -195,7 +183,7 @@ export const HomePage = () => {
                                     <ProjectCard key={index} project={project} />
                             ))}
                             </div>
-                        </section>
+                        </section> */}
 
                         {/* CV Section */}
                         <div id="cv" className="section-container">
@@ -204,8 +192,13 @@ export const HomePage = () => {
                                 <h3 className="subsection-title">Education</h3>
                                 <ul>
                                     <li>
-                                    <p>🔱 <strong>University of California San Diego</strong>, 2022 - Now</p>
-                                    <p className="descriptive-text">B.S. in Undergraduate in Computer Engineering and Mathematics-Computer Science</p>
+                                    <p>🌲 <strong>Stanford University</strong>, 2026 - Present</p>
+                                    <p className="descriptive-text">Ph.D Student in Electrical Engineering</p>
+                                    </li>
+                                    <li>
+                                    <p>🔱 <strong>University of California San Diego</strong>, 2022 - 2025</p>
+                                    <p className="descriptive-text">B.S. in Computer Engineering and Mathematics-Computer Science</p>
+                                    <p className="descriptive-text">GPA: 4.0        Summa Cum Laude</p>
                                     </li>
                                     <li>
                                     <p>📕 <strong>Stanford Summer Session</strong>, 2020 - 2021 Summer</p>
@@ -243,9 +236,17 @@ export const HomePage = () => {
                             </div>
                             <div id="Publications" className="subsection-container">
                                 <h3 className="subsection-title">Publications</h3>
+                                {/* <p className="descriptive-text" style={{ fontStyle: 'italic' }}>
+                                    ⊥ Co-First Authors, * Correspondence Authors
+                                    </p> */}
+
                                 <ul>
                                     {PubList.map((publication, index) => {
-                                    const formattedAuthors = publication.authorList.replace(/Shengqi Wu/,"<strong>Shengqi Wu</strong>");
+                                    // const formattedAuthors = publication.authorList.replace(/Shengqi Wu/,"<strong>Shengqi Wu</strong>");
+                                    const formattedAuthors = publication.authorList
+                                        .replace(/Shengqi Wu/, "<strong>Shengqi Wu</strong>")
+                                        .replace(/\*/g, "<sup>*</sup>")
+                                        .replace(/⊥/g, "<sup>⊥</sup>");
                                     return (
                                         <li key={index}>
                                         <p className="descriptive-text" style={{display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "8px",}}>
@@ -272,7 +273,7 @@ export const HomePage = () => {
                                 <h3 className="subsection-title">Awards & Certificates</h3>
                                 <ul>
                                     <li>
-                                    <p className="descriptive-text">University of California San Diego Provost Honor × 9</p>
+                                    <p className="descriptive-text">University of California San Diego Provost Honor × 10</p>
                                     </li>
                                     <li>
                                     <p className="descriptive-text">Heartsaver First Aid CPR AED by American Heart  Association</p>

@@ -99,7 +99,7 @@ export const ProjectList:Project[] = [
     FalldownPrediction,
     SoCalSocial,
     TranscriptomicPipeline,
-    TumorGrowth
+    // TumorGrowth
 ];
 
 const CWCLab: Experience ={
@@ -114,10 +114,10 @@ const CWCLab: Experience ={
     end_time: new Date(2025,8),
 }
 const ChemLab: Experience = {
-    companyName: "Prof. Joseph Wang Nano-bioelectronics (NBE) Lab",
+    companyName: "Nano-bioelectronics (NBE) Lab",
     companyLink: "https://joewang.ucsd.edu/",
     companyPosition: "San Diego, CA",
-    jobTitle: "Undergraduate Researcher",
+    jobTitle: "Undergraduate Researcher, With Prof. Joseph Wang",
     jobDescription: "Develop and implement deep learning models for sensor data analysis and motion capture categorization, integrating hardware code solutions under the mentorship of Dr. Shichao Ding.",
     projects: [FalldownPrediction],
     begin_time: new Date(2025,1),
@@ -145,11 +145,18 @@ export const ExperienceList: Experience [] = [
 
 export const PubList: Publication[] = [
     {
+        title: "Machine Learning-Assisted Fe–N–C Single-Atom Nanozyme Rapid Screening Platform for Acetylcholinesterase Inhibitors",
+        authorList: "Xin Li⊥, Shengqi Wu⊥, Shichao Ding*, Zhao Wang, Jing He, Mingxia Sun, Haitham Saad Al-Mashriqi, Selene Tang, Jia Chen*, Hongdeng Qiu*\n",
+        journal: "Analytical Chemistry 2025",
+        link: "https://doi.org/10.1021/acs.analchem.5c05641"
+      },
+    {
       title: "Small-molecule fluorescence probes for biomarkers of Alzheimer’s disease",
       authorList: "Juanxia Wang, Xu Shao, Chao Wang, Shengqi Wu, Mengyao Bai, Pengtao Zhang, Selene Tang, Nan Zhang, Xin Wang, Zhen Yang, Xiaoling Hu, Ping Guan, Zhaoyuan Lyu, Shichao Ding",
       journal: "Biosensors and Bioelectronics 2025",
       link: "https://doi.org/10.1016/j.bios.2025.117722"
-    }
+    },
+
   ];
   
 

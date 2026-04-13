@@ -12,9 +12,10 @@ import MenuItem from "@mui/material/MenuItem";
 
 const pages = [
   { name: "About Me", id: "about-me" },
-  { name: "News", id: "news" },
-  { name: "Projects", id: "projects" },
+  // { name: "News", id: "news" },
+  //{ name: "Projects", id: "projects" },
   { name: "CV", id: "cv" },
+  // { name: "Portfolio", id:"portfolio"}
 ];
 
 export const NavBar = () => {
@@ -31,6 +32,12 @@ export const NavBar = () => {
   const scrollToSection = (id: string) => {
     const section = document.getElementById(id);
     //const navbarHeight = 68.5; // Adjust this value based on your navbar height
+    if (id === "portfolio") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      window.location.href = "/portfolio"; // or "/your-base-path/portfolio" if using GitHub Pages
+      setAnchorElNav(null);
+      return;
+    }
     if (section) {
       const offset = section.offsetTop ;
       window.scrollTo({ top: offset, behavior: "smooth" });
